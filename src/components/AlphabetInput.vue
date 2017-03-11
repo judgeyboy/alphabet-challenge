@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <label>{{letter}}</label>
+  <div class="alphabet-input">
+    <label class="alphabet-input__display">{{letter}}</label>
     <input type="text" v-model="input" @keyup="checkInput" focused>
   </div>
 </template>
@@ -26,3 +26,8 @@
     }
   }
 </script>
+
+<style lang="sass">
+  alphabet-input__display
+    color: blue
+</style>
