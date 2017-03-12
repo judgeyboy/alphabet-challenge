@@ -1,6 +1,11 @@
 <template>
   <div>
     <h1>The Alphabet-on-Keyboard Challenge!</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+      <alpha-button @click="foo">play</alpha-button>
+    </p>
 
     <div v-show="isStopped">
       <p>Warm up your fingers! when you're ready...click start</p>
@@ -25,6 +30,7 @@
   const ALPHABET = "abcdefgh".split('');
 
   import AlphabetInput from './AlphabetInput.vue'
+  import AlphaButton from './AlphaButton.vue'
 
   export default {
     name: 'App',
@@ -79,6 +85,9 @@
           this.letter = nextLetter;
         }
       },
+      foo(){
+        alert('fooo was pressed');
+      },
       getNextLetter(currentLetter){
         // todo: handle z (last letter of alphabet case)
         return ALPHABET[ALPHABET.indexOf(this.letter) + 1];
@@ -92,8 +101,13 @@
 
     },
     components: {
-      AlphabetInput
+      AlphabetInput,
+      AlphaButton
     }
 
   }
 </script>
+
+<style lang="sass">
+  @import '../sass/main'
+</style>
