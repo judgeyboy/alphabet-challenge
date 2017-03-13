@@ -1,8 +1,7 @@
-<template>
-  <div class="alphabet-input">
-    <label class="alphabet-input__display">{{letter}}</label>
-    <input type="text" v-model="input" @keyup="checkInput" focused>
-  </div>
+<template lang="pug">
+  div.alphabet-input
+    label.alphabet-input__display {{letter}}
+    input(type='text' v-model="input" @keyup="checkInput")
 </template>
 
 <script>

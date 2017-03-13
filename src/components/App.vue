@@ -1,34 +1,32 @@
-<template>
-  <div>
-    <h1>The Alphabet-on-Keyboard Challenge!</h1>
-    <p>
+<template lang="pug">
+  div.wrapper
+    page-title
+    p.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
-      <alpha-button @click="foo">play</alpha-button>
-    </p>
+    alpha-button(@click="foo") play
 
-    <div v-show="isStopped">
-      <p>Warm up your fingers! when you're ready...click start</p>
-      <button type="button" @click="startChallenge">START CHALLENGE</button>
-    </div>
+    div(v-show="isStopped")
+      p Warm up your fingers! when you're ready...click start
+      button(type="button" @click="startChallenge") Start Challenge
 
-    <div v-show="isInProgress">
-      <alphabet-input :letter="letter" :onMatch="checkProgress" />
-    </div>
+    div(v-show="isInProgress")
+      alphabet-input(:letter="letter", :onMatch="checkProgress")
 
-    <div v-show="isCompleted">
-      <h2>Congratulations!</h2>
-      <p>You've completed the Alphabet-on-Keyboard challenge in {{ completedTimeInSeconds }} seconds.</p>
-      <button type="button" @click="restartGame">Play Again</button>
-    </div>
+    div(v-show="isCompleted")
+      h2 Congratulations!
+      p You've completed the Alphabet-on-Keyboard challenge in {{ completedTimeInSeconds }} seconds.
+      button(type="button" @click="restartGame") Play Again
 
-    {{currentTimeInSeconds}}
+    span {{currentTimeInSeconds}}
+
   </div>
 </template>
 
 <script>
-  const ALPHABET = "abcdefgh".split('');
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split('');
 
+  import PageTitle from './PageTitle.vue'
   import AlphabetInput from './AlphabetInput.vue'
   import AlphaButton from './AlphaButton.vue'
 
@@ -101,6 +99,7 @@
 
     },
     components: {
+      PageTitle,
       AlphabetInput,
       AlphaButton
     }
@@ -110,4 +109,9 @@
 
 <style lang="sass">
   @import '../sass/main'
+
+  .wrapper
+    width: 40rem
+    margin: 50px auto
+
 </style>

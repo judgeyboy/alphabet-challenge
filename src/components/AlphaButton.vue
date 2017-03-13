@@ -1,10 +1,10 @@
-<template>
-  <button class="alpha-button"
-          @click="$emit('click')"
-          type="button"
-          name="button">
-    <slot></slot>
-  </button>
+<template lang="pug">
+  button.alpha-button(
+    type="button"
+    name="button"
+    @click="$emit('click')")
+    slot
+
 </template>
 
 <script>
