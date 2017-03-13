@@ -15,7 +15,9 @@
 
     div(v-show="isCompleted")
       h2 Congratulations!
-      p You've completed the Alphabet-on-Keyboard challenge in {{ completedTimeInSeconds }} seconds.
+      p.
+        You've completed the Alphabet-on-Keyboard challenge
+        in {{ completedTimeInSeconds }} seconds.
       button(type="button" @click="restartGame") Play Again
 
     span {{currentTimeInSeconds}}
@@ -24,7 +26,7 @@
 </template>
 
 <script>
-  const ALPHABET = "abcdefghijklmnopqrstuvwxyz".split('');
+  const ALPHABET = "abcde".split('');
 
   import PageTitle from './PageTitle.vue'
   import AlphabetInput from './AlphabetInput.vue'

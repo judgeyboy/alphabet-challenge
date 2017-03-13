@@ -14,11 +14,21 @@
 </script>
 
 <style lang="sass" scoped>
+  @import ../sass/colors
+
   .alpha-button
-    border-radius: 4px
-    border: 1px solid green
-    padding: 5px 10px
-    font: normal normal Arial
+    border-radius: .25em
+    border: .0625em solid $soft-red
+    padding: 0.3125em .625em
+    font-family: 'Droid Sans', sans-serif
+    font-size: 1em
     background: transparent
-    color: green
+    color: $soft-red
+    cursor: pointer
+
+    &:hover
+      border-color: $off-white
+      color: $off-white
+
+
 </style>
