@@ -1,5 +1,5 @@
 <template lang="pug">
-  input.alphabet-input(type='text' v-model="input" @input="checkInput")
+  input.alphabet-input(type='text' v-model="input" @input="checkInput" autofocus)
 </template>
 
 <script>
