@@ -1,5 +1,5 @@
 <template lang="pug">
-  input.alphabet-input(type='text' v-model="input" @keyup="checkInput")
+  input.alphabet-input(type='text' v-model="input" @input="checkInput")
 </template>
 
 <script>
@@ -37,7 +37,5 @@
     background-color: transparent
     text-align: center
     outline: none
-
-
 
 </style>
