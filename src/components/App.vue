@@ -4,23 +4,22 @@
     p.
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
-    alpha-button(@click="foo") play
 
-    div(v-show="isStopped")
-      p Warm up your fingers! when you're ready...click start
-      button(type="button" @click="startChallenge") Start Challenge
+    div.inner-wrapper
+      div(v-show="isStopped")
+        p Warm up your fingers! when you're ready...click start
+        alpha-button(@click="startChallenge") Start Challenge
 
-    div(v-show="isInProgress")
-      alphabet-input(:letter="letter", :onMatch="checkProgress")
+      div(v-show="isInProgress")
+        letter-display(:letters="matchedLetters")
+        alphabet-input(:letter="letter", :onMatch="checkProgress")
 
-    div(v-show="isCompleted")
-      h2 Congratulations!
-      p.
-        You've completed the Alphabet-on-Keyboard challenge
-        in {{ completedTimeInSeconds }} seconds.
-      button(type="button" @click="restartGame") Play Again
-
-    span {{currentTimeInSeconds}}
+      div(v-show="isCompleted")
+        h2 Congratulations!
+        p.
+          You've completed the Alphabet-on-Keyboard challenge
+          in {{ completedTimeInSeconds }} seconds.
+        alpha-button(@click="restartGame") Play Again
 
   </div>
 </template>
@@ -29,6 +28,7 @@
   const ALPHABET = "abcde".split('');
 
   import PageTitle from './PageTitle.vue'
+  import LetterDisplay from './LetterDisplay.vue'
   import AlphabetInput from './AlphabetInput.vue'
   import AlphaButton from './AlphaButton.vue'
 
@@ -42,7 +42,8 @@
         timeInHundredthOfASecond: 0,
         startTime: null,
         endTime: null,
-        letter: 'a'
+        letter: 'a',
+        matchedLetters: []
       }
     },
     computed: {
@@ -69,13 +70,16 @@
         this.startTime = null;
         this.endTime = null;
         this.letter = 'a';
+        this.matchedLetters = [];
       },
       startChallenge(){
         this.startTime = Date.now();
         this.timer();
         this.gameState = 'inProgress';
       },
+      // Todo: perhaps change method name to onLetterMatch?
       checkProgress(){
+        this.matchedLetters.push(this.letter);
         let nextLetter = this.getNextLetter(this.letter);
         if(!nextLetter){
           this.endTime = Date.now();
@@ -84,9 +88,6 @@
         } else {
           this.letter = nextLetter;
         }
-      },
-      foo(){
-        alert('fooo was pressed');
       },
       getNextLetter(currentLetter){
         // todo: handle z (last letter of alphabet case)
@@ -102,6 +103,7 @@
     },
     components: {
       PageTitle,
+      LetterDisplay,
       AlphabetInput,
       AlphaButton
     }
@@ -115,5 +117,9 @@
   .wrapper
     width: 40rem
     margin: 50px auto
+
+  .inner-wrapper
+    margin-top: 30px
+    text-align: center
 
 </style>
