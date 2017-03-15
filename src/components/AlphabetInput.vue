@@ -1,5 +1,5 @@
 <template lang="pug">
-  input(type='text' v-model="input" @keyup="checkInput")
+  input.alphabet-input(type='text' v-model="input" @keyup="checkInput")
 </template>
 
 <script>
@@ -26,5 +26,18 @@
 </script>
 
 <style lang="sass">
+  @import ../sass/colors
+
+  .alphabet-input
+    border: none
+    border-bottom: 2px solid $soft-red
+    width: 2em
+    font-size: 4em
+    color: $soft-red
+    background-color: transparent
+    text-align: center
+    outline: none
+
+
 
 </style>
