@@ -1,28 +1,24 @@
 <template lang="pug">
-  div.letter-display
-    div.alphabet-letters(v-for="writtenLetter in lastThreeLetters")
-      label.alphabet-input__display {{writtenLetter}}
+  div.letters-display
+    div.letter(v-for="letter in letters") {{letter}}
 </template>
 
 <script>
   export default {
     name: 'LetterDisplay',
-    props: ['letters'],
-    computed: {
-      lastThreeLetters(){
-        if(this.letters.length <= 3){
-          return this.letters;
-        }
-        return this.letters.slice(-3);
-      }
-    }
+    props: ['letters']
   }
 </script>
 
 <style lang="sass">
   @import ../sass/colors
-  
-  .alphabet-input__display
-    font-size: 4em
+
+  .letters-display
+    display: flex
+    align-items: center
+
+  .letter
+    font-size: 2em
     color: $soft-red
+
 </style>

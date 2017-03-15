@@ -10,9 +10,11 @@
         p Warm up your fingers! when you're ready...click start
         alpha-button(@click="startChallenge") Start Challenge
 
-      div(v-show="isInProgress")
+      div.alphabet-container(v-show="isInProgress")
         letter-display(:letters="matchedLetters")
         alphabet-input(:letter="letter", :onMatch="checkProgress")
+        letter-display(:letters="letters")
+
 
       div(v-show="isCompleted")
         h2 Congratulations!
@@ -25,7 +27,7 @@
 </template>
 
 <script>
-  const ALPHABET = "abcde".split('');
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
   import PageTitle from './PageTitle.vue'
   import LetterDisplay from './LetterDisplay.vue'
@@ -43,6 +45,7 @@
         startTime: null,
         endTime: null,
         letter: 'a',
+        letters: ALPHABET.split(''),
         matchedLetters: []
       }
     },
@@ -70,6 +73,7 @@
         this.startTime = null;
         this.endTime = null;
         this.letter = 'a';
+        this.letters = ALPHABET.split('');
         this.matchedLetters = [];
       },
       startChallenge(){
@@ -79,8 +83,9 @@
       },
       // Todo: perhaps change method name to onLetterMatch?
       checkProgress(){
-        this.matchedLetters.push(this.letter);
         let nextLetter = this.getNextLetter(this.letter);
+        this.letters.shift();
+        this.matchedLetters.push(this.letter);
         if(!nextLetter){
           this.endTime = Date.now();
           clearInterval(this.interval);
@@ -120,6 +125,10 @@
 
   .inner-wrapper
     margin-top: 30px
-    text-align: center
+
+  .alphabet-container
+    display: flex
+    width: 100%
+    height: 5em
 
 </style>

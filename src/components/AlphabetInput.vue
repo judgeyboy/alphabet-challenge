@@ -32,7 +32,7 @@
     border: none
     border-bottom: 2px solid $soft-red
     width: 2em
-    font-size: 4em
+    font-size: 2em
     color: $soft-red
     background-color: transparent
     text-align: center
