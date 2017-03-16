@@ -1,8 +1,13 @@
 <template lang="pug">
-  input.alphabet-input(type='text' v-model="input" @input="checkInput" autofocus)
+  input.alphabet-input(
+    type='text'
+    v-model="input"
+    @input="checkInput"
+    v-focus)
 </template>
 
 <script>
+
   export default {
     name: 'AlphabetInput',
     data(){
@@ -20,6 +25,13 @@
       },
       clearInput(){
         this.input = '';
+      }
+    },
+    directives: {
+      focus: {
+        inserted: function(el){
+          el.focus()
+        }
       }
     }
   }

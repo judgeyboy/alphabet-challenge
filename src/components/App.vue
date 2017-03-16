@@ -6,20 +6,20 @@
       tempor incididunt ut labore et dolore magna aliqua.
 
     div.inner-wrapper
-      div(v-show="isStopped")
+      div(v-if="isStopped")
         p Warm up your fingers! when you're ready...
         alpha-button(@click="startChallenge") Start Challenge
 
-      div.alphabet-container(v-show="isInProgress")
+      div.alphabet-container(v-if="isInProgress")
         letter-display(:letters="matchedLetters")
         alphabet-input(:letter="letter", :onMatch="checkProgress")
         letter-display(:letters="letters")
 
 
-      div(v-show="isCompleted")
+      div(v-if="isCompleted")
         h2 Congratulations!
         p
-          | You've completed the Alphabet-on-Keyboard challenge in 
+          | You've completed the Alphabet-on-Keyboard challenge in
           strong {{ completedTimeInSeconds }}
           |  seconds.
         alpha-button(@click="restartGame") Play Again
