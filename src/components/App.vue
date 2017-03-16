@@ -23,7 +23,8 @@
           in {{ completedTimeInSeconds }} seconds.
         alpha-button(@click="restartGame") Play Again
 
-  </div>
+
+    app-footer
 </template>
 
 <script>
@@ -33,6 +34,7 @@
   import LetterDisplay from './LetterDisplay.vue'
   import AlphabetInput from './AlphabetInput.vue'
   import AlphaButton from './AlphaButton.vue'
+  import AppFooter from './AppFooter.vue'
 
   export default {
     name: 'App',
@@ -110,7 +112,8 @@
       PageTitle,
       LetterDisplay,
       AlphabetInput,
-      AlphaButton
+      AlphaButton,
+      AppFooter
     }
 
   }
