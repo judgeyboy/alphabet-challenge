@@ -7,7 +7,7 @@
 
     div.inner-wrapper
       div(v-show="isStopped")
-        p Warm up your fingers! when you're ready...click start
+        p Warm up your fingers! when you're ready...
         alpha-button(@click="startChallenge") Start Challenge
 
       div.alphabet-container(v-show="isInProgress")
@@ -18,9 +18,10 @@
 
       div(v-show="isCompleted")
         h2 Congratulations!
-        p.
-          You've completed the Alphabet-on-Keyboard challenge
-          in {{ completedTimeInSeconds }} seconds.
+        p
+          | You've completed the Alphabet-on-Keyboard challenge in 
+          strong {{ completedTimeInSeconds }}
+          |  seconds.
         alpha-button(@click="restartGame") Play Again
 
 
@@ -128,10 +129,12 @@
 
   .inner-wrapper
     margin-top: 30px
+    text-align: center
 
   .alphabet-container
     display: flex
     width: 100%
     height: 5em
+    justify-content: center
 
 </style>
