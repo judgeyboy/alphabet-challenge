@@ -15,12 +15,11 @@
         alphabet-input(:letter="letter", :onMatch="checkProgress")
         letter-display(:letters="letters")
 
-
       div(v-if="isCompleted")
         h2 Congratulations!
         p
           | You've completed the Alphabet-on-Keyboard challenge in
-          strong {{ completedTimeInSeconds }}
+          strong &nbsp;{{ completedTimeInSeconds }}
           |  seconds.
         alpha-button(@click="restartGame") Play Again
 
@@ -129,7 +128,13 @@
 
   .inner-wrapper
     margin-top: 30px
+    padding: 20px 10px
     text-align: center
+    background-color: $off-white
+    color: $dark-grey
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12)
+
+
 
   .alphabet-container
     display: flex
