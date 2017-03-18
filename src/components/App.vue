@@ -1,9 +1,6 @@
 <template lang="pug">
   div.wrapper
     page-title
-    p.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
 
     div.inner-wrapper
       div(v-if="isStopped")
@@ -123,7 +120,7 @@
   @import '../sass/main'
 
   .wrapper
-    width: 40rem
+    width: 44rem
     margin: 50px auto
 
   .inner-wrapper

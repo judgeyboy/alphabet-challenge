@@ -1,5 +1,5 @@
 <template lang="pug">
-  h1.red The Alphabet Challenge!
+  h1.red The Alphabet Keyboard Challenge!
 </template>
 
 <script>
