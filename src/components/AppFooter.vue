@@ -25,7 +25,7 @@
     height: 40px
     font-size: 1em
     justify-content: space-between
-    width: 40rem
+    width: 44rem
     margin: 50px auto
     color: $off-white
 
