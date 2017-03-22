@@ -1,12 +1,16 @@
 <template lang="pug">
   div.app-footer
-    span.app-footer__love Made With Love by @judgeyboy89
-    span.app-footer__social Github, Twitter
+    div.love
+      span.app-footer__love Made With &nbsp;
+      i.fa.fa-heart.app-footer__heart
+      span.app-footer__love &nbsp; By @judgeyboy89
+    a(href="https://github.com/judgeyboy/alphabet-challenge", target="__blank").app-footer__github
+      i.fa.fa-github.fa-2x
 </template>
 
 <script>
   export default {
-
+    name: 'AppFooter'
   }
 </script>
 
@@ -22,10 +26,15 @@
     justify-content: space-between
     width: 40rem
     margin: 50px auto
-
-  .app-footer__love
     color: $off-white
 
-  .app-footer__social
+  .app-footer__heart
     color: $soft-red
+
+  .app-footer__github
+    color: $soft-red
+
+    &:visited
+      color: $soft-red
+
 </style>
