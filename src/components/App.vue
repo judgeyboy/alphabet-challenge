@@ -7,10 +7,12 @@
         p Warm up your fingers! when you're ready...
         alpha-button(@click="startChallenge") Start Challenge
 
-      div.alphabet-container(v-if="isInProgress")
-        letter-display(:letters="matchedLetters")
-        alphabet-input(:letter="letter", :onMatch="checkProgress")
-        letter-display(:letters="letters")
+      div(v-if="isInProgress")
+        time-display(:time="timeInHundredthOfASecond")
+        div.alphabet-container
+          letter-display(:letters="matchedLetters")
+          alphabet-input(:letter="letter", :onMatch="checkProgress")
+          letter-display(:letters="letters")
 
       div(v-if="isCompleted")
         h2 Congratulations!
@@ -29,6 +31,7 @@
 
   import PageTitle from './PageTitle.vue'
   import LetterDisplay from './LetterDisplay.vue'
+  import TimeDisplay from './TimeDisplay.vue'
   import AlphabetInput from './AlphabetInput.vue'
   import AlphaButton from './AlphaButton.vue'
   import AppFooter from './AppFooter.vue'
@@ -108,6 +111,7 @@
     components: {
       PageTitle,
       LetterDisplay,
+      TimeDisplay,
       AlphabetInput,
       AlphaButton,
       AppFooter
@@ -131,12 +135,9 @@
     color: $dark-grey
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 0 8px 0 rgba(0, 0, 0, 0.12)
 
-
-
   .alphabet-container
     display: flex
     width: 100%
-    height: 5em
     justify-content: center
 
 </style>
