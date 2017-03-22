@@ -3,8 +3,9 @@
     div.love
       span.app-footer__love Made With &nbsp;
       i.fa.fa-heart.app-footer__heart
-      span.app-footer__love &nbsp; By @judgeyboy89
-    a(href="https://github.com/judgeyboy/alphabet-challenge", target="__blank").app-footer__github
+      span.app-footer__love &nbsp;By&nbsp;
+      a(href="https://twitter.com/judgeyboy89", target="__blank").app-footer__link @judgeyboy89
+    a(href="https://github.com/judgeyboy/alphabet-challenge", target="__blank").app-footer__link
       i.fa.fa-github.fa-2x
 </template>
 
@@ -31,8 +32,9 @@
   .app-footer__heart
     color: $soft-red
 
-  .app-footer__github
+  .app-footer__link
     color: $soft-red
+    text-decoration: none
 
     &:visited
       color: $soft-red

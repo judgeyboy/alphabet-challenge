@@ -21,7 +21,7 @@
           strong &nbsp;{{ completedTimeInSeconds }}
           |  seconds.
         alpha-button(@click="restartGame") Play Again
-
+        twitter-link(:completedTime="completedTimeInSeconds")
 
     app-footer
 </template>
@@ -34,6 +34,7 @@
   import TimeDisplay from './TimeDisplay.vue'
   import AlphabetInput from './AlphabetInput.vue'
   import AlphaButton from './AlphaButton.vue'
+  import TwitterLink from './TwitterLink.vue'
   import AppFooter from './AppFooter.vue'
 
   export default {
@@ -114,6 +115,7 @@
       TimeDisplay,
       AlphabetInput,
       AlphaButton,
+      TwitterLink,
       AppFooter
     }
 
