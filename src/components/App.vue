@@ -4,10 +4,12 @@
 
     div.inner-wrapper
       div(v-if="isStopped")
+        h2 Ready, Steady...
         p Warm up your fingers! when you're ready...
         alpha-button(@click="startChallenge") Start Challenge
 
       div(v-if="isInProgress")
+        h2 Go!
         time-display(:time="timeInHundredthOfASecond")
         div.alphabet-container
           letter-display(:letters="matchedLetters")

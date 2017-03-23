@@ -1,5 +1,5 @@
 <template lang="pug">
-  a(:href="'https://twitter.com/intent/tweet?text=' + text + '&url=https://alphabet-challenge.herokuapp.com&hashtags=alphabet,challenge'" target="__blank").twitter-button
+  a(:href="'https://twitter.com/intent/tweet?text=' + text + '&url=https://alphabetchallenge.herokuapp.com/&hashtags=alphabet,challenge'" target="__blank").twitter-button
     i.fa.fa-twitter
 </template>
 
