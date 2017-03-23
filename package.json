@@ -5,10 +5,12 @@
   "author": "Ben Weber <bweber89@gmail.com>",
   "private": true,
   "scripts": {
+    "start": "node server.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "express": "4.15.2",
     "vue": "^2.2.1",
     "vue-styled-components": "1.0.2"
   },
